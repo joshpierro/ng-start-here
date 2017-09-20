@@ -1,0 +1,24 @@
+{
+  "name": "ng-start-here",
+  "version": "1.0.0",
+  "description": "quick start for angularJs",
+  "main": "index.js",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  },
+  "scripts": {
+    "test": "echo",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshpierro/ng-start-here.git"
+  },
+  "author": "Josh D Pierro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshpierro/ng-start-here/issues"
+  },
+  "homepage": "https://github.com/joshpierro/ng-start-here#readme"
+}
