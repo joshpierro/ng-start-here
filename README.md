@@ -6,3 +6,8 @@ Starter apps for angularJs. App contain essential features for any app including
 - routing 
 - services, factories, filters
 - much much more
+
+
+## Usage 
+- clone this repo 
+- run npm start 
