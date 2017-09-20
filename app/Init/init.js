@@ -14,7 +14,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: "../app/list.html"
         })
         .state('item', {
-            url: "/item/:itemId/:itemTitle",
+            url: "/item/:itemId",
             controller: 'Item',
             controllerAs: 'vm',
             templateUrl: "../app/item.html"

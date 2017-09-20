@@ -1,12 +1,22 @@
 ﻿<div class="app-container">
 
 
-    {{vm.selectedItem.ItemId}}
-    <br />
-    {{vm.selectedItem.Title}}
-    <br />
-    {{vm.selectedItem.Description}}
-
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{vm.selectedItem.name}}</span>
+                <span class="md-subhead">Skin Color: {{vm.selectedItem.skin_color}}</span>
+                <span class="md-subhead">Hair Color: {{vm.selectedItem.hairColor_color}}</span>
+                <span class="md-subhead">Height: {{vm.selectedItem.height}}</span>
+                <span class="md-subhead">Mass: {{vm.selectedItem.mass}}</span>
+            </md-card-title-text>
+            <md-card-content>
+            </md-card-content>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-href="/#/home">Back</md-button>
+        </md-card-actions>
+    </md-card>
 
 </div>
 

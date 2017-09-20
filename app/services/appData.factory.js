@@ -5,11 +5,11 @@
         .module('angularApp')
         .factory('AppData', AppData);
 
-    AppData.$inject = ['$http', '$q', '$timeout'];
+    AppData.$inject = ['$http'];
 
-    function AppData($http, $q, $timeout) {
+    function AppData($http) {
 
-        var baseUrl = 'http://localhost:63451/';
+        var BASE_URL = 'https://swapi.co/api/people/';
 
         var service = {
             getItems: getItems,
@@ -18,9 +18,21 @@
 
         return service;
 
+        function getItems(){
+          return $http.get(BASE_URL)
+               .then(function(result){
+                   return result.data.results;
+            });
+        }
 
-        function getItems() {
+        function getItem(itemId) {
+            return  $http.get(BASE_URL + itemId + '/')
+                .then(function(result){
+                    return result.data;
+                });
+        };
 
+        function getItems_mock() {
 
             //This is hardcoded data, but could be an api call (see below) 
             return [
@@ -51,16 +63,7 @@
         }; 
         
 
-        function getItem(itemId) {
 
-            return {
-                ItemId: itemId,
-                Title: 'This is Item ' + itemId,
-                Description: 'blah, blah, blah'
-            };
-
-
-        }; 
 
 
     }

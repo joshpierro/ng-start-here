@@ -5,24 +5,25 @@
         .module('angularApp')
             .controller('Item', Item);
 
-    Item.$inject = ['$location', '$stateParams', 'AppData'];
+    Item.$inject = ['$stateParams', 'AppData'];
 
-    function Item($location, $stateParams, flipperData) {
+    function Item($stateParams, AppData) {
 
         var vm = this;
 
         function getItem() {
 
 
-            vm.selectedItem = flipperData.getItem($stateParams.itemId); 
+            //vm.selectedItem = AppData.getItem($stateParams.itemId);
 
-            //AppDataData.getItem($stateParams.itemId)
-            //   .success(function (data) {
-            //       vm.selectedItem = data;
-            //   })
-            //      .error(function (error) {
-            //          return error;
-            //      });
+            AppData.getItem($stateParams.itemId)
+                .then(function success(result){
+                    console.log(result)
+                    vm.selectedItem = result;
+                },function error(error){
+                    console.log(error)
+                    console.log('we got an error')
+                });
 
 
         }; 

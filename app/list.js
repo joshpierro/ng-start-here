@@ -5,30 +5,27 @@
         .module('angularApp')
             .controller('List', List);
 
-    List.$inject = ['$location', '$stateParams', 'AppData'];
+    List.$inject = ['AppData','AppService'];
 
-    function List($location, $stateParams, AppData) {
+    function List(AppData,AppService) {
         var vm = this;
 
-        console.log('this is a list');
-
-
-        function getAllItems() {
-
-            vm.allItems =  AppData.getItems();
-            //AppData.getItems()
-            //   .success(function (data) {
-            //       vm.allItems = data;
-            //   })
-            //      .error(function (error) {
-            //          return error;
-            //      });
-
+        function init(){
+            getAllItems();
         }
 
-        getAllItems();
+        function getAllItems() {
+            AppData.getItems()
+                .then(function success(result){
+                    vm.allItems = AppService.getIds(result);
+                    console.table( vm.allItems)
+                },function error(error){
+                    console.log('we got an error')
+                });
+        }
 
-   
+        init();
+
     }
 
 })();
